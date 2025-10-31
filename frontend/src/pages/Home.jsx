@@ -12,7 +12,7 @@ export default function Home() {
     if (!query.trim()) return;
     setLoading(true);
     try {
-      const res = await axios.get(`http://localhost:3000/api/books?title=${query}`);
+      const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/books?title=${setQuery}`);
       setBooks(res.data.books || []);
     } catch (error) {
       console.error(error);
