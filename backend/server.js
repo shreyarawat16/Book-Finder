@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import connectDB from "./src/config/data.js"
 import bookRoute from "./src/routes/bookRoute.js";
-const path from "path";
+import path from "path";
 
 dotenv.config();
 
