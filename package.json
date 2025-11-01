@@ -1,0 +1,23 @@
+{
+  "name": "book-finder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
+    "start": "npm run start --prefix backend"
+  
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shreyarawat16/Book-Finder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/shreyarawat16/Book-Finder/issues"
+  },
+  "homepage": "https://github.com/shreyarawat16/Book-Finder#readme"
+}
