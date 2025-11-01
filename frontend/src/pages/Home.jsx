@@ -1,7 +1,8 @@
 import { useState } from "react";
-import axios from "axios";
+
 import BookCard from "../components/BookCard.jsx";
-import getBaseURL from "../utils/getBaseURL.js";
+
+import api from "../lib/axios.js"
 
 export default function Home() {
   const [query, setQuery] = useState("");
@@ -13,7 +14,7 @@ export default function Home() {
     if (!query.trim()) return;
     setLoading(true);
     try {
-      const res = await axios.get(`${getBaseURL()}/api/books?title=${setQuery}`);
+      const res = await api.get(`/books?title=${setQuery}`);
       setBooks(res.data.books || []);
     } catch (error) {
       console.error(error);
