@@ -12,11 +12,16 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+const __dirname = path.resolve();
 
-app.get("/", (req, res) => {
-  res.send("📚 Book Finder Backend is running successfully on Render!");
-});
-
+if(process.env.NODE_ENV !== "production"){ 
+//this is a middleware which allow every request from every other URL
+if(process.env.CORS === "true"){
+   app.use(cors({
+      origin: "http://localhost:5173"
+   }));
+   }
+}
 app.use("/api/books", bookRoute);
 
 if(process.env.NODE_ENV=== "production"){
@@ -27,12 +32,7 @@ if(process.env.NODE_ENV=== "production"){
   })
 }
 
-if(process.env.NODE_ENV!== "production"){
-   app.use(cors({
-    origin: ["http://localhost:5173"],
-  
-}));
-}
+
 const PORT = process.env.PORT || 3000;
 
 connectDB().then(()=>{
